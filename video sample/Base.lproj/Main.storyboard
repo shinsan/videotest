@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -27,6 +28,14 @@
                                     <action selector="didTapRecord:" destination="BYZ-38-t0r" eventType="touchUpInside" id="nB1-jF-2a1"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w7d-Pd-Ezc">
+                                <rect key="frame" x="166" y="700" width="58" height="35"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="stop"/>
+                                <connections>
+                                    <action selector="didTapStop:" destination="BYZ-38-t0r" eventType="touchUpInside" id="W9D-nz-bTY"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -34,9 +43,11 @@
                             <constraint firstItem="gqv-im-mA9" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="CBu-oM-kDS"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="d6Q-BA-yNI" secondAttribute="trailing" id="FWp-90-ESQ"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="d6Q-BA-yNI" secondAttribute="bottom" id="Fww-ZL-0ir"/>
+                            <constraint firstItem="gqv-im-mA9" firstAttribute="top" secondItem="w7d-Pd-Ezc" secondAttribute="bottom" constant="20" id="PeI-P6-hRb"/>
                             <constraint firstItem="d6Q-BA-yNI" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="R1Y-TU-koD"/>
                             <constraint firstItem="d6Q-BA-yNI" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="V8Z-Wy-bwp"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="gqv-im-mA9" secondAttribute="bottom" constant="20" id="Wfe-Ni-UK9"/>
+                            <constraint firstItem="w7d-Pd-Ezc" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="yaB-Ra-qRa"/>
                         </constraints>
                     </view>
                     <connections>

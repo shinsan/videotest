@@ -342,6 +342,10 @@ class ViewController: UIViewController,AVCaptureVideoDataOutputSampleBufferDeleg
 
         
     }
+    @IBAction func didTapStop(_ sender: Any) {
+        
+        closeCamera()
+    }
     
     private func makeUniqueTempFileURL(extension type: String) -> URL {
         let temporaryDirectoryURL = FileManager.default.temporaryDirectory
