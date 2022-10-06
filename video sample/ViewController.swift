@@ -152,9 +152,14 @@ class ViewController: UIViewController,AVCaptureVideoDataOutputSampleBufferDeleg
                   self.previewImageView?.layer.addSublayer(captureVideoLayer)
              }
             
-            // AVCaptureSessionを開始する
-            self.captureSession.startRunning()
+            
            
+           
+        }
+        
+        // AVCaptureSessionを開始する
+        self.sessionQueue.async {
+            self.captureSession.startRunning()
         }
         
         startCapture()
@@ -198,6 +203,8 @@ class ViewController: UIViewController,AVCaptureVideoDataOutputSampleBufferDeleg
     }
     
     func captureOutput(_ output: AVCaptureOutput, didOutput sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
+        
+        print("----------------------------")
       // キャプチャーしたデータが来なかったら処理しない
       if !CMSampleBufferDataIsReady(sampleBuffer) {
         return
