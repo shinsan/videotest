@@ -18,7 +18,7 @@ class ViewController: UIViewController,AVCaptureVideoDataOutputSampleBufferDeleg
     private let captureSession = AVCaptureSession()
     private var videoDeviceInput: AVCaptureDeviceInput?
     private var audioDeviceInput: AVCaptureDeviceInput?
-    private let movieFileOutput = AVCaptureMovieFileOutput()
+//    private let movieFileOutput = AVCaptureMovieFileOutput()
     
     private let sessionQueue = DispatchQueue(label: "session_queue")
     
@@ -142,9 +142,9 @@ class ViewController: UIViewController,AVCaptureVideoDataOutputSampleBufferDeleg
         // ビデオプレビュー画面の設定
         // （割愛）
         //
-        if self.captureSession.canAddOutput(self.movieFileOutput) {
-            self.captureSession.addOutput(self.movieFileOutput)
-        }
+//        if self.captureSession.canAddOutput(self.movieFileOutput) {
+//            self.captureSession.addOutput(self.movieFileOutput)
+//        }
         DispatchQueue.main.async {
             self.captureVideoLayer = AVCaptureVideoPreviewLayer.init(session: self.captureSession)
             self.captureVideoLayer?.frame = self.previewImageView.bounds
@@ -344,8 +344,8 @@ class ViewController: UIViewController,AVCaptureVideoDataOutputSampleBufferDeleg
     
 
     @IBAction func didTapRecord(_ sender: UIButton) {
-        let fileURL = self.makeUniqueTempFileURL(extension: "mov")
-        self.movieFileOutput.startRecording(to: fileURL, recordingDelegate: self)
+//        let fileURL = self.makeUniqueTempFileURL(extension: "mov")
+//        self.movieFileOutput.startRecording(to: fileURL, recordingDelegate: self)
 
         
     }
@@ -378,7 +378,7 @@ class ViewController: UIViewController,AVCaptureVideoDataOutputSampleBufferDeleg
               self.captureSession.removeInput(audioDeviceInput)
          }
          
-         self.captureSession.removeOutput(movieFileOutput)
+         self.captureSession.removeOutput(videoOutput)
          self.captureVideoLayer?.removeFromSuperlayer()
          self.videoDeviceInput = nil
          self.audioDeviceInput = nil
