@@ -370,10 +370,12 @@ class ViewController: UIViewController,AVCaptureVideoDataOutputSampleBufferDeleg
             // キャプチャー（ビデオ保存）を終了
             self.assetWriter.finishWriting {
                 self.videoAssetInput = nil
+                let outputURL = self.assetWriter.outputURL
                 PHPhotoLibrary.shared().performChanges({
-                    PHAssetChangeRequest.creationRequestForAssetFromVideo(atFileURL: self.assetWriter.outputURL)
+                    PHAssetChangeRequest.creationRequestForAssetFromVideo(atFileURL: outputURL)
                 }) { saved, error in
                     if saved {
+                        try? FileManager.default.removeItem(at: outputURL)
                         DispatchQueue.main.async {
                             let alertController = UIAlertController(title: "動画をフォトライブラリに保存しました", message: nil, preferredStyle: .alert)
                             let defaultAction = UIAlertAction(title: "OK", style: .default, handler: nil)
